@@ -1,0 +1,19 @@
+{
+    "name": "9th SMCS Blocking",
+    "short_name": "9th SMCS Blocking",
+    "start_url": ".",
+    "display": "standalone",
+    "description": "A quick & easy way to check today's SMCS blocking schedule.",
+    "theme_color": "#647784",
+    "prefer_related_applications": true,
+    "background_color": "#647784",
+    "icons": [
+        {
+            "src": "images/icon.png",
+            "type": "image/png",
+            "purpose": "any maskable",
+            "sizes": "512x512"
+        }
+    ]
+}
+  

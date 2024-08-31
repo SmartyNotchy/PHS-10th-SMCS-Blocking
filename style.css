@@ -1,0 +1,173 @@
+body {
+    font-family: 'Inclusive Sans', sans-serif;
+    font-display: swap;
+
+    background: #647784;
+
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.25), 
+        rgba(0, 0, 0, 0.25)
+      ), url('images/daniel.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    margin:0;
+}
+
+#content {
+    height: 90vh;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 15vh;
+    margin-right: 15vh;
+    text-align: center;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#title {
+    font-size: 50px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+#header {
+    font-size: 40px;
+}
+
+#extra_info {
+    margin-top: -15px;
+    font-size: 25px;
+}
+
+a {
+    color: #00ccff;
+}
+
+.schedule_div {    
+    color: white;
+    /* background: #ff5050; */
+    background: RGBA(0, 0, 0, 0.5);
+
+    border: 2px solid white;
+    /* border-collapse: collapse; */
+    border-radius: 50px;
+}
+
+.schedule_table {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* background: #eebb55; */
+
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 2px solid white;
+}
+
+
+
+.table_period {
+    width: 20%;
+    font-size: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-collapse: collapse;
+    border: 2px solid white;
+}
+
+/*.table_top {
+    padding-top: 30px;
+}
+
+.table_bottom {
+    padding-bottom: 30px;
+}*/
+
+
+.table_blockA {
+    width: 40%;
+    font-size: 25px;
+    border-collapse: collapse;
+    border: 2px solid white;
+}
+
+.table_blockB {
+    width: 40%;
+    font-size: 25px;
+    border-collapse: collapse;
+    border: 2px solid white;
+}
+
+#footer {
+    font-size: 25px;
+}
+
+#madeby {
+    font-size: 20px;
+}
+
+#week1content {
+    display: flex;
+    text-align: center;
+}
+
+#week1content .schedule_div {
+    margin: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+#week1content .schedule_table {
+    font-size: 18px;
+    border: 1px solid white;
+}
+
+#week1content .schedule_div .table_period {
+    font-size: 18px;
+    border: 1px solid white;
+}
+
+#week1content .schedule_div .table_blockA {
+    font-size: 18px;
+    border: 1px solid white;
+}
+
+#week1content .schedule_div .table_blockB {
+    font-size: 18px;
+    border: 1px solid white;
+}
+
+#week2content {
+    display: flex;
+    text-align: center;
+}
+
+#week2content .schedule_div {
+    margin: 10px;
+    border: 1px solid white;
+    border-radius: 12px;
+}
+
+#week2content .schedule_table {
+    font-size: 18px;    
+    border: 1px solid white;
+}
+
+#week2content .schedule_div .table_period {
+    font-size: 18px;
+    border: 1px solid white;
+}
+
+#week2content .schedule_div .table_blockA {
+    font-size: 18px;
+    border: 1px solid white;
+}
+
+#week2content .schedule_div .table_blockB {
+    font-size: 18px;
+    border: 1px solid white;
+}
