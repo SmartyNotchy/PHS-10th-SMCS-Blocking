@@ -49,7 +49,7 @@ function format_vals(id, startCell, endCell, n) {
   res[`${id}_Pd3`] = parseRow(values[1]);
   res[`${id}_Pd4`] = parseRow(values[2]);
   res[`${id}_Pd5`] = parseRow(values[3]);
-  res[`${id}Notes`] = notes[0][0];
+  res[`${id}_Notes`] = notes[0][0];
 
   return res;
 }
@@ -66,12 +66,18 @@ function send_data() {
   };
   
   // The schedule data that we'll be sending over to my webserver.
+  // JS's Date.getDay() returns a number from 0 to 6 where 1 = Monday
   const payload = Object.assign({},
     format_vals("1", "C4", "F7", "B8"),
     format_vals("2", "I4", "L7", "H8"),
     format_vals("3", "O4", "R7", "N8"),
     format_vals("4", "U4", "X7", "T8"),
-    format_vals("5", "AA4", "AD7", "Z8")
+    format_vals("5", "AA4", "AD7", "Z8"),
+    format_vals("6", "C20", "F23", "B24"),
+    format_vals("7", "I20", "L23", "H24"),
+    format_vals("8", "O20", "R23", "N24"),
+    format_vals("9", "U20", "X23", "T24"),
+    format_vals("10", "AA20", "AD23", "Z24")
   );
 
   const options = { 
@@ -79,7 +85,7 @@ function send_data() {
     'contentType': 'application/json',
     'headers': headers,
     'payload': JSON.stringify(payload),
-    'muteHttpExceptions': false
+    'muteHttpExceptions': true,
   };
 
   console.log(payload); // Debug
