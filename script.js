@@ -1,19 +1,32 @@
-var isMobile = navigator.userAgent.match(/Mobile/i) != null;
-var schedule = null;
-var blockX = true;
-
-if (isMobile) {
-    // TODO
+/* Cookie Helpers */
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
-// Fetch Schedule Data
-fetch("https://smartynotchy.pythonanywhere.com/")
-.then((response) => response.json())
-.then((json) => {
-    schedule = json.body;
-    updateSchedule()
-});
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        while (cookie.charAt(0) == ' ') {
+            cookie = cookie.substring(1, cookie.length);
+        }
+        if (cookie.indexOf(nameEQ) == 0) {
+            return cookie.substring(nameEQ.length, cookie.length);
+        }
+    }
+    return undefined;
+}
 
+/* Rendering Schedules */
+var schedule = null;
+var blockX = undefined;
 function formatDate(date) {
     return `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`;
 }
@@ -70,15 +83,50 @@ function updateSchedule() {
     }
 }
 
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("serviceworker.js").then(
-        (registration) => {
-            console.log("Service worker registration successful:", registration);
-        },
-        (error) => {
-            console.error(`Service worker registration failed: ${error}`);
-        },
-    );
-} else {
-    console.error("Service workers are not supported.");
-}      
+function toggleBlock() {
+    blockX = !blockX;
+    setCookie("block", blockX, 365);
+    document.getElementById("block_toggle_block").innerText = (blockX ? "X" : "Y");
+    updateSchedule();
+}
+
+
+
+/* Onload */
+document.body.onload = function() {
+    /* Mobile Check */
+    var isMobile = navigator.userAgent.match(/Mobile/i) != null;
+    if (isMobile) {
+        // TODO
+    }
+
+    /* Get Block */
+    var blockX = getCookie("block");
+    if (blockX == undefined) {
+        blockX = true;
+        setCookie("block", true, 365);
+    }
+    document.getElementById("block_toggle").onclick = toggleBlock;
+
+    /* Fetch & Render Schedules */
+    fetch("https://smartynotchy.pythonanywhere.com/")
+    .then((response) => response.json())
+    .then((json) => {
+        schedule = json.body;
+        updateSchedule()
+    });
+
+    /* Register PWA ServiceWorker */
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("serviceworker.js").then(
+            (registration) => {
+                console.log("Service worker registration successful:", registration);
+            },
+            (error) => {
+                console.error(`Service worker registration failed: ${error}`);
+            },
+        );
+    } else {
+        console.error("Service workers are not supported.");
+    }
+}

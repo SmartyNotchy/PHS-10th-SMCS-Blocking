@@ -17,6 +17,14 @@ body {
     text-align: center;
 }
 
+hr {
+    color: white;
+}
+
+a {
+    color: #99ccff;
+}
+
 #main_content {
     height: 97vh;
     width: 100vw;
@@ -28,6 +36,15 @@ body {
     align-items: center;     /* Aligns items vertically centered */
 }
 
+#main_content_divception {
+    width: 100vw;
+    
+    display: flex;
+    justify-content: center; /* Aligns items horizontally centered */
+    align-items: center;     /* Aligns items vertically centered */
+}
+
+/* General Schedule Styling */
 .schedule_div {    
     color: white;
     background: RGBA(0, 0, 0, 0.5);
@@ -75,6 +92,33 @@ body {
 /* Main Content Schedule */
 #main_schedule_div {
     width: 600px;
+    position: relative;
+}
+
+#block_toggle {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+    width: 100px;
+    height: 50px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Inclusive Sans', sans-serif;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+#block_toggle:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+#block_toggle:active {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s;
 }
 
 #d0_date {
@@ -97,9 +141,12 @@ body {
 /* Main Content Message Board */
 #message_board_div {
     width: 500px;
+    align-self: stretch; /* Stretch to fill the height of the parent */
     margin-left: 100px;
     text-align: left;
     color: white;
+
+    position: relative;
 }
 
 #message_board_title {
@@ -110,7 +157,14 @@ body {
     font-size: 20px;
 }
 
+#message_board_footer_hr {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+}
 
-hr {
-    color: white;
+#message_board_footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
 }
