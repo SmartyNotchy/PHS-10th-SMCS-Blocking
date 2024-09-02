@@ -76,7 +76,7 @@ function updateSchedule() {
         for (let j = 0; j < 4; j++) {
             document.getElementById(`d${i}_${j+2}`).innerText = schedule[scheduleNum][j][0 + (blockX ? 0 : 2)];
             document.getElementById(`d${i}_${j+2}n`).innerText = schedule[scheduleNum][j][1 + (blockX ? 0 : 2)];
-            if (document.getElementById(`d${i}_${j+2}n`).innerText == "") {
+            if (document.getElementById(`d${i}_${j+2}n`).innerText.trim() == "") {
                 document.getElementById(`d${i}_${j+2}n`).style.display = "none";
             } else {
                 document.getElementById(`d${i}_${j+2}n`).style.display = "block";
