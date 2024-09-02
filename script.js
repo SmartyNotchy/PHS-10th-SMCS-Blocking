@@ -63,6 +63,10 @@ function updateSchedule() {
 
 
     // Update Schedules
+    let startingDay = new Date();
+    let todaysDayNum = startingDay.getDay();
+    startingDay.setDate(startingDay.getDate() - (todaysDayNum == 0 ? 0 : todaysDayNum))
+
     for (let i = 0; i <= 10; i++) {
         let scheduleNum = i;
         if (i == 0) {
@@ -72,6 +76,11 @@ function updateSchedule() {
         for (let j = 0; j < 4; j++) {
             document.getElementById(`d${i}_${j+2}`).innerText = schedule[scheduleNum][j][0 + (blockX ? 0 : 2)];
             document.getElementById(`d${i}_${j+2}n`).innerText = schedule[scheduleNum][j][1 + (blockX ? 0 : 2)];
+            if (document.getElementById(`d${i}_${j+2}n`).innerText == "") {
+                document.getElementById(`d${i}_${j+2}n`).style.display = "none";
+            } else {
+                document.getElementById(`d${i}_${j+2}n`).style.display = "block";
+            }
         }
 
         let notes = schedule[scheduleNum][4];
@@ -79,6 +88,14 @@ function updateSchedule() {
             document.getElementById(`d${i}_notes`).innerText = "No Extra Notes";
         } else {
             document.getElementById(`d${i}_notes`).innerText = "Notes: " + schedule[scheduleNum][4];
+        }
+
+        if (i != 0) {
+            startingDay.setDate(startingDay.getDate() + 1);
+            if (i == 6) {
+                startingDay.setDate(startingDay.getDate() + 2);
+            }
+            document.getElementById(`d${i}_date`).innerText = formatDate(startingDay);
         }
     }
 }
@@ -106,6 +123,7 @@ document.body.onload = function() {
         blockX = true;
         setCookie("block", true, 365);
     }
+    document.getElementById("block_toggle_block").innerText = (blockX ? "X" : "Y");
     document.getElementById("block_toggle").onclick = toggleBlock;
 
     /* Fetch & Render Schedules */

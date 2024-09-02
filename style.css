@@ -51,15 +51,22 @@ a {
 
     border: 2px solid white;
     border-radius: 50px;
-    width: 300px;
+    width: 270px;
+
+    margin-right: 20px;
+    align-self: stretch; /* Stretch to fill the height of the parent */
+}
+
+.schedule_div:last-child {
+    margin-right: 0px;
 }
 
 .schedule_table {
     border: 2px solid white;
     border-collapse: collapse;
 
-    width: calc(100% - 100px);
-    margin-left: 50px;
+    width: calc(100% - 50px);
+    margin-left: 25px;
 }
 
 .schedule_table th, .schedule_table td {
@@ -67,7 +74,7 @@ a {
 }
 
 .table_period {
-    font-size: 24px;
+    font-size: 20px;
     width: 0px;
     padding: 10px;
 }
@@ -77,22 +84,50 @@ a {
 }
 
 .table_location.table_top {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .table_subj {
-    font-size: 20px;
-    margin-bottom: -10px;
+    font-size: 16px;
 }
 
 .table_subjNote {
-    font-size: 16px;
+    margin-top: -10px;
+    font-size: 12px;
 }
 
 /* Main Content Schedule */
 #main_schedule_div {
     width: 600px;
     position: relative;
+}
+
+#main_schedule_div .schedule_table {
+    width: calc(100% - 100px);
+    margin-left: 50px;
+}
+
+#main_schedule_div .schedule_table .table_period {
+    font-size: 24px;
+    width: 0px;
+    padding: 10px;
+}
+
+#main_schedule_div .schedule_table .table_location {
+    padding: 0px;
+}
+
+#main_schedule_div .schedule_table .table_location.table_top {
+    font-size: 24px;
+}
+
+#main_schedule_div .schedule_table .table_subj {
+    font-size: 20px;
+}
+
+#main_schedule_div .schedule_table .table_subjNote {
+    margin-top: -10px;
+    font-size: 16px;
 }
 
 #block_toggle {
@@ -142,7 +177,7 @@ a {
 #message_board_div {
     width: 500px;
     align-self: stretch; /* Stretch to fill the height of the parent */
-    margin-left: 100px;
+    margin-left: 80px;
     text-align: left;
     color: white;
 
@@ -167,4 +202,28 @@ a {
     position: absolute;
     bottom: 0px;
     width: 100%;
+}
+
+/* Full 2 Week Schedules */
+#schedules_week1 {
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+    
+    display: flex;
+    justify-content: center; /* Aligns items horizontally centered */
+    align-items: center;     /* Aligns items vertically centered */
+}
+
+#schedules_week2 {
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    
+    display: flex;
+    justify-content: center; /* Aligns items horizontally centered */
+    align-items: center;     /* Aligns items vertically centered */
 }
