@@ -1,9 +1,9 @@
 {
-    "name": "9th SMCS Blocking",
-    "short_name": "9th SMCS Blocking",
+    "name": "10th SMCS Blocking",
+    "short_name": "10th SMCS Blocking",
     "start_url": ".",
     "display": "standalone",
-    "description": "A quick & easy way to check today's SMCS blocking schedule.",
+    "description": "Quick & Easy way to check the 10th Grade PHS SMCS Blocking Schedule.",
     "theme_color": "#647784",
     "prefer_related_applications": true,
     "background_color": "#647784",
