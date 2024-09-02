@@ -95,7 +95,7 @@ function updateSchedule() {
             if (i == 6) {
                 startingDay.setDate(startingDay.getDate() + 2);
             }
-            document.getElementById(`d${i}_date`).innerText = formatDate(startingDay);
+            document.getElementById(`d${i}_date`).innerText = `${formatDate(startingDay)} (W${Math.floor((i - 1) / 5 + 1)} ${["Mon", "Tue", "Wed", "Thu", "Fri"][(i-1) % 5]})`;
         }
     }
 }

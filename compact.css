@@ -5,172 +5,186 @@ body {
     background: #647784;
 
     background-image: linear-gradient(
-        rgba(0, 0, 0, 0.25), 
-        rgba(0, 0, 0, 0.25)
-      ), url('images/daniel.jpg');
+        rgba(0, 0, 0, 0.5), 
+        rgba(0, 0, 0, 0.5)
+      ), url('images/peaks.webp');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
     margin:0;
+
+    text-align: center;
 }
 
-#content {
+#title_mobile {
+    font-size: 37px;
+    color: white;
+    display: block !important;
+}
+
+#main_content {
     margin-top: 10px;
     margin-bottom: 50px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+    width: calc(100vw - 60px);
     text-align: center;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
 }
 
-#title {
-    font-size: 45px;
-    color: white;
-    margin-bottom: 20px;
-}
-
-#header {
-    font-size: 30px;
-}
-
-#extra_info {
-    margin-top: -15px;
-    font-size: 22px;
-}
-
-a {
-    color: #00ccff;
-}
-
-#two_weeks {
-    margin-bottom: 10px;
-}
-
+/* General Schedule Styling */
 .schedule_div {    
     color: white;
-    /* background: #ff5050; */
     background: RGBA(0, 0, 0, 0.5);
 
     border: 2px solid white;
-    /* border-collapse: collapse; */
-    border-radius: 50px;
+    border-radius: 25px;
+
+    position: relative;
 }
 
 .schedule_table {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-
-    /* background: #eebb55; */
-
-    table-layout: fixed;
-    border-collapse: collapse;
     border: 2px solid white;
+    border-collapse: collapse;
+
+    width: calc(100% - 50px);
+    margin-left: 25px;
 }
 
-
+.schedule_table th, .schedule_table td {
+    border: 2px solid white;
+}
 
 .table_period {
-    width: 12%;
-    font-size: 25px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-collapse: collapse;
-    border: 2px solid white;
+    font-size: 24px;
+    width: 0px;
+    padding: 10px;
 }
 
-/*.table_top {
-    padding-top: 30px;
+.table_location {
+    padding: 0px;
 }
 
-.table_bottom {
-    padding-bottom: 30px;
-}*/
-
-
-.table_blockA {
-    width: 44%;
-    font-size: 20px;
-    border-collapse: collapse;
-    border: 2px solid white;
+.table_location.table_top {
+    font-size: 24px;
 }
 
-.table_blockB {
-    width: 44%;
-    font-size: 20px;
-    border-collapse: collapse;
-    border: 2px solid white;
-}
-
-#footer {
-    font-size: 25px;
-}
-
-#madeby {
+.table_subj {
     font-size: 20px;
 }
 
-#week1content {
+.table_subjNote {
+    margin-top: -10px;
+    font-size: 16px;
+}
+
+.schedule_date {
+    font-size: 22px;
+}
+
+/* Main Schedule Styling */
+
+#block_toggle {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    width: 80px;
+    height: 40px;
+    color: white;
+    font-size: 14px;
+    font-family: 'Inclusive Sans', sans-serif;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+#block_toggle:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+#block_toggle:active {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s;
+}
+
+#d0_date {
+    font-size: 30px;
+    color: white;
+    margin-bottom: -10px;
+}
+
+#d0_day {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+#d0_notes {
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+/* Main Content Message Board */
+hr {
+    color: white;
+}
+
+#message_board_div {
+    margin-top: 50px;
+    width: 100%;
+    height: 400px;
+    text-align: left;
+    color: white;
+
+    position: relative;
+}
+
+#message_board_title {
+    display: none;
+}
+
+#message_board_subtitle {
+    font-size: 30px;
+}
+
+#message_board_footer_hr {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+}
+
+#message_board_footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+/* Full 2 Week Schedules */
+#schedules_week1 {
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
     text-align: center;
-    display: block;
 }
 
-#week1content .schedule_div {
-    margin: 10px;
-    border: 1px solid white;
-    border-radius: 10px;
+#schedules_week1 .schedule_div {
+    margin-bottom: 20px;
 }
 
-#week1content .schedule_table {
-    font-size: 18px;
-    border: 1px solid white;
-}
-
-#week1content .schedule_div .table_period {
-    font-size: 18px;
-    border: 1px solid white;
-}
-
-#week1content .schedule_div .table_blockA {
-    font-size: 18px;
-    border: 1px solid white;
-}
-
-#week1content .schedule_div .table_blockB {
-    font-size: 18px;
-    border: 1px solid white;
-}
-
-#week2content {
+#schedules_week2 {
+    margin-top: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 40px;
     text-align: center;
-    display: block;
 }
 
-#week2content .schedule_div {
-    margin: 10px;
-    border: 1px solid white;
-    border-radius: 12px;
-}
-
-#week2content .schedule_table {
-    font-size: 18px;    
-    border: 1px solid white;
-}
-
-#week2content .schedule_div .table_period {
-    font-size: 18px;
-    border: 1px solid white;
-}
-
-#week2content .schedule_div .table_blockA {
-    font-size: 18px;
-    border: 1px solid white;
-}
-
-#week2content .schedule_div .table_blockB {
-    font-size: 18px;
-    border: 1px solid white;
+#schedules_week2 .schedule_div {
+    margin-bottom: 20px;
 }
