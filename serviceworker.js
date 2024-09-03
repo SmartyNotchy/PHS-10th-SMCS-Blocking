@@ -1,9 +1,10 @@
 // The version of the cache.
-const VERSION = "v1.1.0";
+const VERSION = "v1.1.1";
 
 // The name of the cache
 const CACHE_NAME = `10-smcs-blocking-${VERSION}`;
 
+/*
 // The static resources that the app needs to function.
 const APP_STATIC_RESOURCES = [
     "",
@@ -66,4 +67,4 @@ self.addEventListener("fetch", (event) => {
       }
     })(),
   );
-});
+});*/
