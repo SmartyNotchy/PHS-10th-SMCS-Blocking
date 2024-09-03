@@ -114,13 +114,9 @@ function toggleBlock() {
 /* Onload */
 document.body.onload = function() {
     /* Mobile Check */
-    for (let i = 0; i < document.styleSheets.length; i++) {
-        let stylesheet = document.styleSheets[i];
-        if (stylesheet.href && stylesheet.href.includes("compact.css")) {
-            // Compact CSS Loaded
-            document.getElementById("block_select_x").innerText = "X";
-            document.getElementById("block_select_y").innerText = "Y";
-        }
+    if (window.innerWidth < 800 || navigator.userAgent.match(/Mobile/i) != null) {
+        document.getElementById("block_select_x").innerText = "X";
+        document.getElementById("block_select_y").innerText = "Y";
     }
 
     /* Get Block */
