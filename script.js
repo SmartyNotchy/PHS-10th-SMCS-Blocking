@@ -103,7 +103,8 @@ function updateSchedule() {
 function toggleBlock() {
     blockX = !blockX;
     setCookie("block", blockX, 365);
-    document.getElementById("block_toggle_block").innerText = (blockX ? "X" : "Y");
+    document.getElementById(`block_select_${blockX ? "x" : "y"}`).setAttribute("disabled", true);
+    document.getElementById(`block_select_${blockX ? "y" : "x"}`).removeAttribute("disabled");
     updateSchedule();
 }
 
@@ -112,9 +113,13 @@ function toggleBlock() {
 /* Onload */
 document.body.onload = function() {
     /* Mobile Check */
-    var isMobile = navigator.userAgent.match(/Mobile/i) != null;
-    if (isMobile) {
-        // TODO
+    for (let i = 0; i < document.styleSheets.length; i++) {
+        let stylesheet = document.styleSheets[i];
+        if (stylesheet.href && stylesheet.href.includes("compact.css")) {
+            // Compact CSS Loaded
+            document.getElementById("block_select_x").innerText = "X";
+            document.getElementById("block_select_y").innerText = "Y";
+        }
     }
 
     /* Get Block */
@@ -123,8 +128,9 @@ document.body.onload = function() {
         blockX = true;
         setCookie("block", true, 365);
     }
-    document.getElementById("block_toggle_block").innerText = (blockX ? "X" : "Y");
-    document.getElementById("block_toggle").onclick = toggleBlock;
+    document.getElementById(`block_select_${blockX ? "x" : "y"}`).setAttribute("disabled", true);
+    document.getElementById("block_select_x").onclick = toggleBlock;
+    document.getElementById("block_select_y").onclick = toggleBlock;
 
     /* Fetch & Render Schedules */
     fetch("https://smartynotchy.pythonanywhere.com/")

@@ -1,25 +1,21 @@
 // The version of the cache.
-const VERSION = "v1.0.5";
+const VERSION = "v1.0.4";
 
 // The name of the cache
-const CACHE_NAME = `9-smcs-blocking-${VERSION}`;
+const CACHE_NAME = `10-smcs-blocking-${VERSION}`;
 
-/*
 // The static resources that the app needs to function.
 const APP_STATIC_RESOURCES = [
     "",
     "index.html",
     "style.css",
     "compact.css",
-    "images/morning.png",
-    "images/night.png",
-    "images/dawn.png",
-    "images/afternoon.png",
+    "images/daniel.jpg",
+    "images/peaks.webo",
     "images/favicon.ico",
     "images/icon.png"
 ];
 
-/*
 // On install, cache the static resources
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -71,4 +67,3 @@ self.addEventListener("fetch", (event) => {
     })(),
   );
 });
-//*/

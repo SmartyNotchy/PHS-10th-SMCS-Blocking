@@ -87,30 +87,45 @@ body {
 
 /* Main Schedule Styling */
 
-#block_toggle {
+
+.block_select {
+    width: 35px;
+    height: 35px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Inclusive Sans', sans-serif;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid white;
+    border-radius: 25px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#block_select_x {
+    position: absolute;
+    right: 50px;
+    top: 10px;
+}
+
+#block_select_y {
     position: absolute;
     right: 10px;
     top: 10px;
-
-    width: 80px;
-    height: 40px;
-    color: white;
-    font-size: 14px;
-    font-family: 'Inclusive Sans', sans-serif;
-    background-color: rgba(0, 0, 0, 0.2);
-    border: none;
-    border-radius: 15px;
-    transition: background-color 0.3s;
 }
 
-#block_toggle:hover {
+.block_select:hover {
     background-color: rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-#block_toggle:active {
+.block_select:active {
     background-color: rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.block_select:disabled {
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 #d0_date {

@@ -136,30 +136,44 @@ a {
     font-size: 16px;
 }
 
-#block_toggle {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-
+.block_select {
     width: 100px;
-    height: 50px;
+    height: 30px;
     color: white;
     font-size: 16px;
     font-family: 'Inclusive Sans', sans-serif;
     background-color: rgba(0, 0, 0, 0.2);
-    border: none;
+    border: 1px solid white;
     border-radius: 25px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-#block_toggle:hover {
+#block_select_x {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+#block_select_y {
+    position: absolute;
+    right: 20px;
+    top: 60px;
+}
+
+.block_select:hover {
     background-color: rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-#block_toggle:active {
+.block_select:active {
     background-color: rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.block_select:disabled {
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 #d0_date {
