@@ -100,6 +100,7 @@ function updateSchedule() {
     }
 }
 
+var blockX;
 function toggleBlock() {
     blockX = !blockX;
     setCookie("block", blockX, 365);
@@ -123,7 +124,7 @@ document.body.onload = function() {
     }
 
     /* Get Block */
-    var blockX = getCookie("block");
+    blockX = getCookie("block");
     if (blockX == undefined) {
         blockX = true;
         setCookie("block", true, 365);
