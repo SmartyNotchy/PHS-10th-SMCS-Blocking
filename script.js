@@ -44,9 +44,9 @@ function updateSchedule() {
         date.setDate(date.getDate() + 1);
         if (weekday == 6) {
             date.setDate(date.getDate() + 1);
-            document.getElementById("d0_day").innerHTML = "(Tomorrow - Monday)"
-        } else {
             document.getElementById("d0_day").innerHTML = "(Next Monday)"
+        } else {
+            document.getElementById("d0_day").innerHTML = "(Tomorrow - Monday)"
         }
     } else {
         if (gotoNextDay) {
@@ -57,6 +57,7 @@ function updateSchedule() {
     }
     document.getElementById("d0_date").innerHTML = `${formatDate(date)}`
 
+    let nextWeekMonday = weekday == 6;
     if (weekday == 0 || weekday == 6) {
         weekday = 1;
     }
@@ -71,6 +72,9 @@ function updateSchedule() {
         let scheduleNum = i;
         if (i == 0) {
             scheduleNum = weekday;
+            if (nextWeekMonday) {
+                scheduleNum += 5;
+            }
         }
 
         for (let j = 0; j < 4; j++) {
