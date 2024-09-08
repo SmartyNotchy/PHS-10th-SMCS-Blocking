@@ -32,48 +32,55 @@ function formatDate(date) {
 }
 
 function updateSchedule() {
+    // Select the schedule to display on the main page
     let date = new Date();
     let gotoNextDay = date.getHours() >= 16; // Past 4:00pm
     if (gotoNextDay) {
         date.setDate(date.getDate() + 1);
     }
+
+    // Which day # is the one selected on the main page?
+    // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
     let weekday = date.getDay();
 
     if (weekday == 0 || weekday == 6) {
-        // Weekend Case
+        // The current day # is a Weekend
         date.setDate(date.getDate() + 1);
         if (weekday == 6) {
+            // Skip ahead 2 days if current day # is Saturday
             date.setDate(date.getDate() + 1);
             document.getElementById("d0_day").innerHTML = "(Next Monday)"
         } else {
+            // Skip ahead 1 day if current day # is Sunday
             document.getElementById("d0_day").innerHTML = "(Tomorrow - Monday)"
         }
     } else {
+        // The current day # is a Weekday
         if (gotoNextDay) {
-        document.getElementById("d0_day").innerHTML = `(Tomorrow - ${["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"][weekday-1]})`;
+            document.getElementById("d0_day").innerHTML = `(Tomorrow - ${["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"][weekday-1]})`;
         } else {
-        document.getElementById("d0_day").innerHTML = `(Today - ${["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"][weekday-1]})`;
+            document.getElementById("d0_day").innerHTML = `(Today - ${["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"][weekday-1]})`;
         }
     }
     document.getElementById("d0_date").innerHTML = `${formatDate(date)}`
 
-    let nextWeekMonday = weekday == 6;
-    if (weekday == 0 || weekday == 6) {
-        weekday = 1;
-    }
-
-
     // Update Schedules
     let startingDay = new Date();
     let todaysDayNum = startingDay.getDay();
-    startingDay.setDate(startingDay.getDate() - (todaysDayNum == 0 ? 0 : todaysDayNum))
+    startingDay.setDate(startingDay.getDate() - (todaysDayNum == 0 ? 7 : todaysDayNum))
 
     for (let i = 0; i <= 10; i++) {
         let scheduleNum = i;
         if (i == 0) {
-            scheduleNum = weekday;
-            if (nextWeekMonday) {
-                scheduleNum += 5;
+            // Use the chosen day # for the main page
+            if (weekday == 0 || weekday == 1 && gotoNextDay || weekday == 6) {
+                // 1: It's currently a Sunday (< 4 PM)
+                // 2: It's currently a Sunday (> 4 PM)
+                // 3: The next-selected day was a Saturday
+                
+                scheduleNum = 6; // Monday W2
+            } else {
+                scheduleNum = weekday;
             }
         }
 

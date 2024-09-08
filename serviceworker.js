@@ -1,5 +1,5 @@
 // The version of the cache.
-const VERSION = "v1.1.2";
+const VERSION = "v1.1.3";
 
 // The name of the cache
 const CACHE_NAME = `10-smcs-blocking-${VERSION}`;
