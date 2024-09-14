@@ -78,7 +78,7 @@ function updateSchedule() {
                 // 2: It's currently a Sunday (> 4 PM)
                 // 3: The next-selected day was a Saturday
                 
-                scheduleNum = 6; // Monday W2
+                scheduleNum = 1; // Monday W1
             } else {
                 scheduleNum = weekday;
             }

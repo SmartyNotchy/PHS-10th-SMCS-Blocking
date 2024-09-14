@@ -15,6 +15,9 @@ function parseCell(x) {
 
 // What it sounds like
 function parseRow(row) {
+  if (row == undefined) {
+    row = [undefined, undefined, undefined, undefined];
+  }
   res = [parseCell(row[0]), parseCell(row[1]), parseCell(row[2]), parseCell(row[3])];
   return res;
 }
@@ -25,12 +28,9 @@ function format_vals(id, startCell, endCell, n) {
   // startCell & endCell are the "corners" of the 4x4 square that contains the actual schedule
   // n is the cell that contains the "notes" for that day
 
-  // My personal debug sheet ID 
-  const sheetID = "1qxSR4DcvS3ylTaoiTVMYQ-GrkJVrpHshXLm8rgqwD_4";
+  // Personal Sheet ID 
+  const sheetID = "1l1c1ryzALaiMrEGz_lCSFgAm1YGCZTFplmk92ZubI88";
   
-  // The actual schedule sheet ID
-  // const sheetID = "10DcVKnTMYVIs0pqYI4vKvZNNIQE5IYuuSIaLjlDjz3k";
-
   // Fetches the cell values from the spreadsheet.
   // Yes, this fetches from PublishedWeek, I'm too lazy to get it to work from Source (and besides, PublishedWeek works just fine).
   let values = Sheets.Spreadsheets.Values.get(sheetID, `PublishedWeek!${startCell}:${endCell}`).values;
@@ -64,6 +64,11 @@ function send_data() {
     "username": "pilliam", // hey, that's me :D
     "password": "Str@wberry Jam Collab 2021" // best celeste mod
   };
+
+  // Update so that Google Sheets doesn't pull a stupid.
+  const sheetID = "1l1c1ryzALaiMrEGz_lCSFgAm1YGCZTFplmk92ZubI88";
+  const sheet = SpreadsheetApp.openById(sheetID).getSheetByName("PublishedWeek");
+  sheet.getRange("O2").setValue("UpdatePing" + Math.random().toString());
   
   // The schedule data that we'll be sending over to my webserver.
   // JS's Date.getDay() returns a number from 0 to 6 where 1 = Monday
