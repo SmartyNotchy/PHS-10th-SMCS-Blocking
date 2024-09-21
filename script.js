@@ -67,7 +67,7 @@ function updateSchedule() {
     // Update Schedules
     let startingDay = new Date();
     let todaysDayNum = startingDay.getDay();
-    startingDay.setDate(startingDay.getDate() - (todaysDayNum == 0 ? 7 : todaysDayNum))
+    startingDay.setDate(startingDay.getDate() - (todaysDayNum == 0 ? 7 : todaysDayNum) + 7);
 
     for (let i = 0; i <= 10; i++) {
         let scheduleNum = i;
@@ -78,7 +78,11 @@ function updateSchedule() {
                 // 2: It's currently a Sunday (> 4 PM)
                 // 3: The next-selected day was a Saturday
                 
-                scheduleNum = 1; // Monday W1
+                if (weekday == 6 && gotoNextDay) { // Friday Night
+                    scheduleNum = 6; // Monday W2
+                } else {
+                    scheduleNum = 1; // Monday W1
+                }
             } else {
                 scheduleNum = weekday;
             }

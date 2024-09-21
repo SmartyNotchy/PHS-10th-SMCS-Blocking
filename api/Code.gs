@@ -68,7 +68,7 @@ function send_data() {
   // Update so that Google Sheets doesn't pull a stupid.
   const sheetID = "1l1c1ryzALaiMrEGz_lCSFgAm1YGCZTFplmk92ZubI88";
   const sheet = SpreadsheetApp.openById(sheetID).getSheetByName("PublishedWeek");
-  sheet.getRange("O2").setValue("UpdatePing" + Math.random().toString());
+  sheet.getRange("G27").setValue("UpdatePing" + Math.random().toString());
   
   // The schedule data that we'll be sending over to my webserver.
   // JS's Date.getDay() returns a number from 0 to 6 where 1 = Monday
