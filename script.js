@@ -67,7 +67,7 @@ function updateSchedule() {
     // Update Schedules
     let startingDay = new Date();
     let todaysDayNum = startingDay.getDay();
-    startingDay.setDate(startingDay.getDate() - (todaysDayNum == 0 ? 7 : todaysDayNum) + 7);
+    startingDay.setDate(startingDay.getDate() - (todaysDayNum == 0 ? 7 : todaysDayNum));
 
     for (let i = 0; i <= 10; i++) {
         let scheduleNum = i;
