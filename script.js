@@ -34,7 +34,7 @@ function formatDate(date) {
 function updateSchedule() {
     // Select the schedule to display on the main page
     let date = new Date();
-    let gotoNextDay = date.getHours() >= 16; // Past 4:00pm
+    let gotoNextDay = date.getHours() >= 13; // Past 1:00pm
     if (gotoNextDay) {
         date.setDate(date.getDate() + 1);
     }
@@ -74,8 +74,8 @@ function updateSchedule() {
         if (i == 0) {
             // Use the chosen day # for the main page
             if (weekday == 0 || weekday == 1 && gotoNextDay || weekday == 6) {
-                // 1: It's currently a Sunday (< 4 PM)
-                // 2: It's currently a Sunday (> 4 PM)
+                // 1: It's currently a Sunday (< 1 PM)
+                // 2: It's currently a Sunday (> 1 PM)
                 // 3: The next-selected day was a Saturday
                 
                 if (weekday == 6 && gotoNextDay) { // Friday Night
