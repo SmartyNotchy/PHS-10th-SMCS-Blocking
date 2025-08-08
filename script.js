@@ -145,7 +145,7 @@ document.body.onload = function() {
     document.getElementById("block_select_y").onclick = toggleBlock;
 
     /* Fetch & Render Schedules */
-    fetch("https://smartynotchy.pythonanywhere.com/")
+    fetch("https://phssmcsschedule.pythonanywhere.com/")
     .then((response) => response.json())
     .then((json) => {
         schedule = json.body;

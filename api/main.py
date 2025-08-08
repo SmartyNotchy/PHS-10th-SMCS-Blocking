@@ -59,10 +59,10 @@ def parseScheduleRow(row):
     yCount = 0
     xyCount = 0
     yxCount = 0
-    
+
     content = [] # List of [Block(s), Subject, Notes] lists
     sideNotes = [] # Block-less Notes
-    
+
     i = -1
     for block in row:
         i += 1
@@ -115,7 +115,7 @@ def parseScheduleRow(row):
     elif len(content) == 1:
         # Case 5
         return [content[0][1], " ".join([content[0][2], sideNote]), content[0][1], " ".join([content[0][2], sideNote])]
-    
+
     # If we got here... that's really bad.
     return ["???", "Error", "???", "Error"]
 
@@ -133,14 +133,14 @@ def handle_post():
         if request.method == 'POST':
             username = request.headers['username']
             password = request.headers['password']
-            if username == "pilliam" and password == "Str@wberry Jam Collab 2021":
+            if username == "pilliam" and password == "[REDACTED]":
                 data = request.data
                 processSchedule(data)
                 return "Uploaded!"
             else:
                 return "Wrong Credentials!"
-    except:
-        return "Oh noes, an error occured!"
+    except Exception as e:
+        return f"Oh noes, an error occured! ({e})"
 
 # Handling GET Requests
 @app.route('/', methods=['GET'])

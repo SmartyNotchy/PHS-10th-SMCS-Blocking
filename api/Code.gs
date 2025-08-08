@@ -9,7 +9,7 @@ function parseCell(x) {
   if (x == undefined || x == null) {
     return "";
   } else {
-    return x.toString().trim();
+    return x.toString().replace("'", "").trim();
   }
 }
 
@@ -49,20 +49,18 @@ function format_vals(id, startCell, endCell, n) {
   res[`${id}_Pd3`] = parseRow(values[1]);
   res[`${id}_Pd4`] = parseRow(values[2]);
   res[`${id}_Pd5`] = parseRow(values[3]);
-  res[`${id}_Notes`] = notes[0][0];
+  res[`${id}_Notes`] = parseCell(notes[0][0]);
 
   return res;
 }
 
 function send_data() {
   // My webserver URL. Thanks PythonAnywhere!
-  const url = 'https://smartynotchy.pythonanywhere.com/';
+  const url = 'https://phssmcsschedule.pythonanywhere.com/';
   
-  // Is this secure? Not at all lmfao.
-  // But let's be real, who's going to spend their time hacking into a funny little blocking schedule?
   const headers = { 
-    "username": "pilliam", // hey, that's me :D
-    "password": "Str@wberry Jam Collab 2021" // best celeste mod
+    "username": "pilliam",
+    "password": "[REDACTED]"
   };
 
   // Update so that Google Sheets doesn't pull a stupid.
@@ -96,4 +94,6 @@ function send_data() {
   console.log(payload); // Debug
   
   const response = UrlFetchApp.fetch(url, options);
+  const responseMsg = response.toString();
+  console.log(responseMsg); // Debug
 }
